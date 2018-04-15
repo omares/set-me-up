@@ -14,11 +14,6 @@ brew "findutils"
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew "gnu-sed", args: ["with-default-names"]
 
-# Install Bash 4.
-brew "bash"
-
-brew "bash-completion2"
-
 # Install `wget` with IRI support.
 brew "wget", args: ["with-iri"]
 

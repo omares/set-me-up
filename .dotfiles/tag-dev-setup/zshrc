@@ -1,0 +1,14 @@
+source ~/.zsh/smu.zsh
+
+### Added by Zplugin's installer
+source ${ZDOTDIR:-$HOME}/.zplugin/bin/zplugin.zsh
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
+
+[[ -s ${SMU_ZSH_DIR}/zplugin.zsh ]] && source ${SMU_ZSH_DIR}/zplugin.zsh
+[[ -s /usr/local/etc/grc.zsh ]] && source /usr/local/etc/grc.zsh
+
+if [[ -s ~/.zshrc.local ]]; then
+    source ~/.zshrc.local
+fi
