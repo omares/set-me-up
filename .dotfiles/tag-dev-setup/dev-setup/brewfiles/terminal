@@ -1,0 +1,22 @@
+tap "sebglazebrook/aliases"
+
+# bash4
+brew "bash"
+brew "bash-completion2"
+
+brew "zsh"
+brew "coreutils"
+brew "pigz"
+brew "p7zip"
+
+# https://github.com/sharkdp/fd
+brew "fd"
+
+# https://github.com/garabik/grc
+brew "grc"
+
+# https://github.com/clvv/fasd
+brew "fasd"
+
+# https://github.com/sebglazebrook/aliases
+brew "aliases"
