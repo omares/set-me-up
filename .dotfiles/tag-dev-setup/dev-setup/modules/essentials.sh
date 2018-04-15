@@ -15,16 +15,6 @@ echo ""
 
 brew bundle install --file="${SCRIPT_DIR}/../brewfiles/essentials"
 
-# GNU core utilities (those that come with OS X are outdated).
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
-
-LINE='eval "$(rbenv init -)"'
-grep -q "$LINE" ~/.extra || echo "$LINE" >> ~/.extra
-
 # Lxml and Libxslt
 brew link libxml2 --force
 brew link libxslt --force
-
-# Heroku
-heroku update

@@ -1,8 +1,0 @@
-cask_args appdir: "/Applications"
-
-brew "android-sdk"
-
-cask "java"
-cask "intellij-idea-ce"
-cask "android-studio"
-

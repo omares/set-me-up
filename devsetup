@@ -173,7 +173,7 @@ provision_module() {
     echo "";
     [[ ! $REPLY =~ ^[Yy]$ ]] && exit 0
 
-    [[ ${#_arg_modules[@]} = 0 || " ${_arg_modules[@]} " =~ " all " ]] && modules=("macosupdate" "macos" "essentials" "terminal" "android" "aws" "datastores" "pydata" "web") || modules=("${_arg_modules[@]}")
+    [[ ${#_arg_modules[@]} = 0 || " ${_arg_modules[@]} " =~ " all " ]] && modules=("macosupdate" "macos" "essentials" "terminal") || modules=("${_arg_modules[@]}")
 
     # 99% of our modules are not usable without homebrew and a proper dotfiles setup so we always run the base module
     # modules=("base" "${modules[@]}")
