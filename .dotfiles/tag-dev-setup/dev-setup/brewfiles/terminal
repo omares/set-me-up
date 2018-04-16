@@ -20,3 +20,5 @@ brew "fasd"
 
 # https://github.com/sebglazebrook/aliases
 brew "aliases"
+
+cask "iterm2"
