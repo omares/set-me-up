@@ -1,3 +1,7 @@
+[user]
+    name = CHANGEME
+    email = CHANGEME
+
 [alias]
 
     # View abbreviated SHA, description, and history graph of the latest 20 commits
@@ -73,12 +77,13 @@
     }; f"
 
 [apply]
-
     # Detect whitespace errors when applying a patch
     whitespace = fix
 
-[core]
+[branch]
+    autosetuprebase = always
 
+[core]
     # Use custom `.gitignore` and `.gitattributes`
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
@@ -89,80 +94,102 @@
     whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
     # Make `git rebase` safer on OS X
-    # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+    # More info: http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
     trustctime = false
 
     # Prevent showing files whose names contain non-ASCII symbols as unversioned.
     # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
     precomposeunicode = false
 
-[color]
+    # https://github.com/so-fancy/diff-so-fancy
+    pager = diff-so-fancy | less --tabs=4 -RFX
 
+[color]
     # Use colors in Git commands that are capable of colored output when
     # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
     ui = auto
 
 [color "branch"]
-
     current = yellow reverse
     local = yellow
     remote = green
 
 [color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 
-    meta = yellow bold
-    frag = magenta bold # line info
-    old = red # deletions
-    new = green # additions
+[color "diff-highlight"]
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+	oldNormal = red bold
 
 [color "status"]
-
     added = yellow
     changed = green
     untracked = cyan
 
 [diff]
-
     # Detect copies as well as renames
     renames = copies
 
-[help]
+[difftool]
+    prompt = false
 
+[difftool "intellij"]
+    cmd = /usr/local/bin/idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+
+[difftool "p4merge"]
+    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$LOCAL" "$REMOTE"
+
+[help]
     # Automatically correct and execute mistyped commands
     autocorrect = 1
 
 [merge]
-
     # Include summaries of merged commits in newly created merge commit messages
     log = true
+    tool = intellij
+
+[mergetool]
+    keepBackup = false
+    prompt = false
+
+[mergetool "intellij"]
+    cmd = /usr/local/bin/idea merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+    trustExitCode = true
+
+[mergetool "p4merge"]
+    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    keepTemporaries = false
+    trustExitCode = true
 
 [push]
-
-    # Use the Git 1.x.x default to avoid errors on machines with old Git
-    # installations. To use `simple` instead, add this to your `~/.extra` file:
-    # `git config --global push.default simple`. See http://git.io/mMah-w.
-    default = matching
+    default = current
     # Make `git push` push relevant annotated tags when pushing branches out.
     followTags = true
+
+[rerere]
+    enabled = true
 
 # URL shorthands
 
 [url "git@github.com:"]
-
     insteadOf = "gh:"
     pushInsteadOf = "github:"
     pushInsteadOf = "git://github.com/"
 
 [url "git://github.com/"]
-
     insteadOf = "github:"
 
 [url "git@gist.github.com:"]
-
     insteadOf = "gst:"
     pushInsteadOf = "gist:"
     pushInsteadOf = "git://gist.github.com/"
 
 [url "git://gist.github.com/"]
-
     insteadOf = "gist:"
