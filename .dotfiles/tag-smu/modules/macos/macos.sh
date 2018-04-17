@@ -2,7 +2,7 @@
 
 if [[ "${EUID}" -ne 0 ]]; then
   echo "This module requires sudo rights."
-  echo "You should run this module using the dev-setup script in your home directory."
+  echo "You should run this module using the smu script."
   exit 1
 fi
 

@@ -7,7 +7,7 @@ echo "Setting up zsh."
 echo "------------------------------"
 echo ""
 
-brew bundle install --file="./../brewfiles/terminal"
+brew bundle install --file="./brewfile"
 
 echo "------------------------------"
 echo "Installing zplugin..."

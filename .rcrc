@@ -1,3 +1,3 @@
 DOTFILES_DIRS=".dotfiles"
-TAGS="dev-setup"
+TAGS="smu"
 UNDOTTED="bin"

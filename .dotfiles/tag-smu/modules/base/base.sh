@@ -14,7 +14,7 @@ if [[ $(command -v rcup) == "" ]]; then
     echo "------------------------------"
     echo "Installing rcm suite"
 
-    brew bundle install --file="./../brewfiles/base"
+    brew bundle install --file="./brewfile"
 fi
 
 
