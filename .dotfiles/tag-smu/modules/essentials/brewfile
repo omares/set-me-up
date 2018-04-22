@@ -1,0 +1,111 @@
+cask_args appdir: "/Applications"
+
+tap "homebrew/versions"
+tap "bramstein/webfonttools"
+
+brew "coreutils"
+
+# Install some other useful utilities like `sponge`.
+brew "moreutils"
+
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`
+brew "findutils", args: ["with-default-names"]
+
+# Install GNU `sed`, overwriting the built-in `sed`.
+brew "gnu-sed", args: ["with-default-names"]
+
+# Install `wget` with IRI support.
+brew "wget", args: ["with-iri"]
+
+# Install more recent versions of some OS X tools.
+brew "vim", args: ["override-system-vi"]
+
+# Install other useful binaries.
+brew "screen"
+brew "ack"
+brew "dark-mode"
+brew "htop-osx", args: ["with-ncurses"]
+
+# image processing
+brew "webkit2png"
+brew "zopfli"
+brew "pngcrush"
+brew "imagemagick", args: ["with-webp"]
+
+# vcs related
+brew "git"
+brew "git-lfs"
+brew "hub"
+brew "diff-so-fancy"
+cask "p4merge"
+
+# compression utilities
+brew "p7zip"
+brew "pigz"
+brew "unrar"
+brew "xz"
+
+# Lxml and Libxslt
+brew "libxml2"
+brew "libxslt"
+
+# other
+brew "lua"
+brew "pv"
+brew "rename"
+brew "speedtest_cli"
+brew "ssh-copy-id"
+brew "tree"
+brew "pandoc"
+brew "httpie"
+brew "sslmate"
+
+# IDEs
+cask "intellij-idea"
+cask "sublime-text"
+cask "atom"
+cask "macdown"
+
+# browsers
+cask "google-chrome"
+cask "firefox"
+brew "lynx"
+
+# tools
+cask "cyberduck"
+cask "yed"
+cask "phraseapp"
+cask "1password"
+cask "tunnelblick"
+cask "spectacle"
+cask "beardedspice"
+cask "istat-menus"
+
+# database management
+cask "sequel-pro"
+cask "psequel"
+cask "pgadmin4"
+
+# Everything container related
+cask "virtualbox"
+cask "vagrant"
+brew "docker"
+
+# Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
+cask "qlcolorcode"
+cask "qlstephen"
+cask "qlmarkdown"
+cask "quicklook-json"
+cask "qlimagesize"
+cask "webpquicklook"
+cask "suspicious-package"
+cask "quicklookase"
+cask "qlvideo"
+
+# mac store applications
+mas "Amphetamine", id: 93798470
+mas "The Unarchiver", id: 425424353
+mas "Kuvva", id: 451557061
+mas "Bear notes", id: 1091189122
+mas "Microsoft Remote Desktop", id: 715768417
+mas "Lightshot Screenshot", id: 526298438
