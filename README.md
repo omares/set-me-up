@@ -96,6 +96,13 @@ For flexibility and speed reasons set-me-up does not rely on any of the popular 
 
 The terminal module does not come with any theme or fancy prompt. A separate theming module is planned to satisfy this. 
 
+### [modules/php](.dotfiles/tag-smu/modules/php)
+
+Installs PHP 5.6, 7.2 and composer via brew.  
+For each version the apcu, amqp, igbinary and xdebug extensions are installed via pecl, memcached is installed from source.
+ 
+The [phpswitch script](https://github.com/philcook/brew-php-switcher) enables you to switch between the installed versions.
+
 ### [modules/update.sh](.dotfiles/tag-smu/modules/update.sh)
 
 Tries it best to be useful as an updater of the provided sources.
