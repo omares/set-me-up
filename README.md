@@ -68,11 +68,11 @@ set-me-up is a plain collection of bash scripts and tools that you probably alre
 The `smu` script is wrapped with auto-generated [argbash.io](https://argbash.io/) code. It aims to make the usage of set-me-up as pleasant as possible.
 It runs the given modules by sourcing the appropriate script and ensuring a few constraints: always run the base module and prioritize the macOS update to the beginning of the list. 
 
-### [modules/base](.dotfiles/tag-smu/modules/base)
+### [modules/base](.dotfiles/base)
 
 The base module is the only module that is required to run at least once on your machine to ensure the minimum required constraints for set-me-up to work. 
 
-If not available it will install `brew` and then `rcm`. Following the installation `rcup` will be executed to symlink the dotfiles from the` . dotfiles` folder into your home directory. 
+If not available it will install `brew` and then `rcm`. Afterwards `rcup` will be executed to symlink the dotfiles from the `.dotfiles` folder into your home directory. 
 
 ### [modules/essentials](.dotfiles/tag-smu/modules/essentials)
 
