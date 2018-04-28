@@ -97,3 +97,10 @@ bindkey '^[[B' history-substring-search-down
 if [[ ! $(command -v rbenv) == "" ]]; then
     eval "$(rbenv init --no-rehash - zsh)"
 fi
+
+# init pyenv
+if [[ ! $(command -v pyenv) == "" ]]; then
+    # set PYENV_ROOT for pipenv
+    export PYENV_ROOT="$(pyenv root)"
+    eval "$(pyenv init --no-rehash - zsh)"
+fi

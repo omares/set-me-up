@@ -55,7 +55,7 @@ This mitigates the need to adjust the files that come with set-me-up and gives h
 
 
 
-smu symlinks all dotfiles from the `.dotfiles` folder, which includes the modules, to your home directory. With the power of [rcm](https://github.com/thoughtbot/rcm), `.dotfiles/tag-smu/gitconfig` becomes `~/.gitconfig. Using bash scripting the installation of brew is ensured. All this is covered by the base module and provides an opinionated base setup on which smu operates. 
+smu symlinks all dotfiles from the `.dotfiles` folder, which includes the modules, to your home directory. With the power of [rcm](https://github.com/thoughtbot/rcm), `.dotfiles/tag-smu/gitconfig` becomes `~/.gitconfig`. Using bash scripting the installation of brew is ensured. All this is covered by the base module and provides an opinionated base setup on which smu operates. 
 
 Depending on the module further applications will be installed by "automating" their installation through other bash scripts.  
 In most cases set-me-up delegates the legwork to tools that are meant to be used for the job. E.g. installing zplugin for zsh plugin management. 
@@ -73,6 +73,8 @@ It runs the given modules by sourcing the appropriate script and ensuring a few 
 The base module is the only module that is required to run at least once on your machine to ensure the minimum required constraints for set-me-up to work. 
 
 If not available it will install `brew` and then `rcm`. Afterwards `rcup` will be executed to symlink the dotfiles from the `.dotfiles` folder into your home directory. 
+
+This is the only module that is not overwritable via rcm tag management. It is always sourced from the smu installation directory.
 
 ### [modules/essentials](.dotfiles/tag-smu/modules/essentials)
 
@@ -98,19 +100,26 @@ The terminal module does not come with any theme or fancy prompt. A separate the
 
 ### [modules/php](.dotfiles/tag-smu/modules/php)
 
-Installs PHP 5.6, 7.2 and composer via brew.  
+Installs PHP5, PHP7 and [composer](https://getcomposer.org/) for package management via brew. PHP7 will be defined as active version.  
 For each version the apcu, amqp, igbinary and xdebug extensions are installed via pecl, memcached is installed from source.
  
 The [phpswitch script](https://github.com/philcook/brew-php-switcher) enables you to switch between the installed versions.
 
 ### [modules/ruby](.dotfiles/tag-smu/modules/ruby)
 
-Installs rbenv via brew and then uses rbenv to install ruby.  
-The ruby module requires the terminal module to work out of the box.
+Installs [rbenv](https://github.com/rbenv/rbenv) for version management and [bundler](http://bundler.io/) for package management. ruby is installed and defined as global version via rbenv. 
+
+When the terminal module is used the ruby installation will work out of the box as the required rbenv code is already in place. 
+
+### [modules/python](.dotfiles/tag-smu/modules/python)
+
+Installs [pyenv](https://github.com/pyenv/pyenv) for version management and [pipenv](https://github.com/pypa/pipenv) for package management. python2 and python3 is installed using pipenv. python3 will be defined as global version.
+
+When the terminal module is used the python installation will work out of the box as the required pyenv code is already in place.   
 
 ### [modules/update.sh](.dotfiles/tag-smu/modules/update.sh)
 
-Tries it best to be useful as an updater of the provided sources.
+Tries it best to be useful as an updater of the provided sources. Work in progress ;)
 
 ## Credits
 
