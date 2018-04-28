@@ -103,6 +103,11 @@ For each version the apcu, amqp, igbinary and xdebug extensions are installed vi
  
 The [phpswitch script](https://github.com/philcook/brew-php-switcher) enables you to switch between the installed versions.
 
+### [modules/ruby](.dotfiles/tag-smu/modules/ruby)
+
+Installs rbenv via brew and then uses rbenv to install ruby.  
+The ruby module requires the terminal module to work out of the box.
+
 ### [modules/update.sh](.dotfiles/tag-smu/modules/update.sh)
 
 Tries it best to be useful as an updater of the provided sources.

@@ -184,7 +184,7 @@ modules=("${_arg_modules[@]}")
 
 # enable all known modules
 if [[ ${#_arg_modules[@]} = 0 || " ${_arg_modules[@]} " =~ " all " ]]; then
-    modules=("macosupdate" "essentials" "macos" "terminal" "php" "${modules[@]}")
+    modules=("macosupdate" "essentials" "macos" "terminal" "php" "ruby" "${modules[@]}")
 fi
 
 # by default run the base module as early as possible
