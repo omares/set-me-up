@@ -66,7 +66,10 @@ if [[ -z $(xcode-select -p) ]]; then
     xcode-select --install
 fi
 
-brew bundle install --file="./brewfile"
+echo "------------------------------"
+echo "Installing brew dependencies"
+
+brew bundle install -v --file="./brewfile"
 
 echo "------------------------------"
 echo "Installing php version switcher..."

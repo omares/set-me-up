@@ -46,7 +46,7 @@ sdk_install "maven" "${maven3}"
 sdk_install "gradle" "${gradle4}"
 
 echo "------------------------------"
-echo "Setting java} ${java8} as global version"
+echo "Setting java ${java8} as global version"
 sdk default "java" "${java8}"
 
 echo "------------------------------"

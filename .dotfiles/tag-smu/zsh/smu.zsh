@@ -111,7 +111,6 @@ if [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
     source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 fi
 
-
 # add android platform tools to path
 if [[ -d "${HOME}/Library/Android/sdk/platform-tools" ]]; then
     export PATH="${HOME}/Library/Android/sdk/platform-tools:${PATH}"
