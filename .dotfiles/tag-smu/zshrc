@@ -12,3 +12,6 @@ autoload -Uz _zplugin
 if [[ -s ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
+
+# fake sdkman installation so we can move it to own file
+# sdkman-init.sh

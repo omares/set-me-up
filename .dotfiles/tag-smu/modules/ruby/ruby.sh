@@ -7,7 +7,10 @@ echo "Running ruby module"
 echo "------------------------------"
 echo ""
 
-brew bundle install --file="./brewfile"
+echo "------------------------------"
+echo "Installing brew dependencies"
+
+brew bundle install -v --file="./brewfile"
 
 echo "------------------------------"
 rbenv init

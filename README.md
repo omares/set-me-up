@@ -107,7 +107,7 @@ The [phpswitch script](https://github.com/philcook/brew-php-switcher) enables yo
 
 ### [modules/ruby](.dotfiles/tag-smu/modules/ruby)
 
-Installs [rbenv](https://github.com/rbenv/rbenv) for version management and [bundler](http://bundler.io/) for package management. ruby is installed and defined as global version via rbenv. 
+Installs [rbenv](https://github.com/rbenv/rbenv) for version management and [bundler](http://bundler.io/) for package management. ruby2 is installed and defined as global version via rbenv. 
 
 When the terminal module is used the ruby installation will work out of the box as the required rbenv code is already in place. 
 
@@ -115,8 +115,12 @@ When the terminal module is used the ruby installation will work out of the box 
 
 Installs [pyenv](https://github.com/pyenv/pyenv) for version management and [pipenv](https://github.com/pypa/pipenv) for package management. python2 and python3 is installed using pipenv. python3 will be defined as global version.
 
-When the terminal module is used the python installation will work out of the box as the required pyenv code is already in place.   
+When the terminal module is used the python installation will work out of the box as the required pyenv code is already in place. 
 
+### [modules/java](.dotfiles/tag-smu/modules/java)
+
+Installs [sdkman](http://sdkman.io/) to manage all java-world related packages. java8, java10, kotlin1, maven3 and gradle4 are installed via sdkman. **java8** will be defined as global version. Android Studio is installed via brew cask. 
+ 
 ### [modules/update.sh](.dotfiles/tag-smu/modules/update.sh)
 
 Tries it best to be useful as an updater of the provided sources. Work in progress ;)

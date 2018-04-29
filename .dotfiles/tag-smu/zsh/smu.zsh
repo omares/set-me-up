@@ -104,3 +104,14 @@ if [[ ! $(command -v pyenv) == "" ]]; then
     export PYENV_ROOT="$(pyenv root)"
     eval "$(pyenv init --no-rehash - zsh)"
 fi
+
+# init sdkman
+if [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
+    export SDKMAN_DIR="${HOME}/.sdkman"
+    source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+fi
+
+# add android platform tools to path
+if [[ -d "${HOME}/Library/Android/sdk/platform-tools" ]]; then
+    export PATH="${HOME}/Library/Android/sdk/platform-tools:${PATH}"
+fi
