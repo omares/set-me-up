@@ -119,7 +119,13 @@ When the terminal module is used the python installation will work out of the bo
 
 ### [modules/java](.dotfiles/tag-smu/modules/java)
 
-Installs [sdkman](http://sdkman.io/) to manage all java-world related packages. java8, java10, kotlin1, maven3 and gradle4 are installed via sdkman. **java8** will be defined as global version. Android Studio is installed via brew cask. 
+Installs [sdkman](http://sdkman.io/) to manage all java-world related packages. java8, java10, kotlin1, maven3 and gradle4 are installed via sdkman. **java8** will be defined as global version. Android Studio is installed via brew cask.
+
+### [modules/go](.dotfiles/tag-smu/modules/go)
+
+Installs [goenv](https://github.com/syndbg/goenv) for version management and [dep](https://github.com/golang/dep) for package management. go1 is installed and defined as global version via goenv. 
+
+When the terminal module is used the go installation will work out of the box as the required goenv code is already in place.
  
 ### [modules/update.sh](.dotfiles/tag-smu/modules/update.sh)
 
