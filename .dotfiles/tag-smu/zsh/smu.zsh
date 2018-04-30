@@ -105,6 +105,11 @@ if [[ ! $(command -v pyenv) == "" ]]; then
     eval "$(pyenv init --no-rehash - zsh)"
 fi
 
+# init goenv
+if [[ ! $(command -v goenv) == "" ]]; then
+    eval "$(goenv init --no-rehash - zsh)"
+fi
+
 # init sdkman
 if [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
     export SDKMAN_DIR="${HOME}/.sdkman"
