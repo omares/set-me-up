@@ -1,0 +1,3 @@
+brew "goenv"
+# ignore the go dependency as it was not installed via brew but with goenv
+brew "dep", args: ["ignore-dependencies"]
