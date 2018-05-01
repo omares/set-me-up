@@ -1,0 +1,5 @@
+tap "nodenv/nodenv"
+
+brew "nodenv"
+# at time of creation note-build was missing a release version which contained node 10
+brew "node-build", args: ["HEAD"]
