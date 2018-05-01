@@ -65,7 +65,6 @@ In most cases set-me-up delegates the legwork to tools that are meant to be used
 Nothing describes the actual functionality better than code. It is recommended to check the appropriate module script to get the full insights. 
 set-me-up is a plain collection of bash scripts and tools that you probably already worked with, therefor understanding what is happening will be easy. :)  
 
-
 ### Available modules
 
 #### [base](.dotfiles/base)
@@ -78,7 +77,7 @@ This is the only module that is not overwritable via rcm tag management. It is a
 
 #### [essentials](.dotfiles/tag-smu/modules/essentials)
 
-Installs a multitude of brew packages, casks and Mac App Store applications. Check the brewfile to get an overview. 
+Installs a multitude of brew packages, casks and Mac App Store applications. Check the [brewfile](.dotfiles/tag-smu/modules/essentials/brewfile) to get an overview. 
 
 #### [macos](.dotfiles/tag-smu/modules/macos)
 
@@ -102,7 +101,7 @@ The terminal module does not come with any theme or fancy prompt. A separate the
 
 #### [php](.dotfiles/tag-smu/modules/php)
 
-Installs PHP5, PHP7 and [composer](https://getcomposer.org/) for package management via brew. PHP7 will be defined as active version.  
+Installs PHP5, PHP7 and [composer](https://getcomposer.org/) for package management via brew. PHP7 will be defined as global version.  
 For each version the apcu, amqp, igbinary and xdebug extensions are installed via pecl, memcached is installed from source.
  
 The [phpswitch script](https://github.com/philcook/brew-php-switcher) enables you to switch between the installed versions.
@@ -115,7 +114,7 @@ When the terminal module is used the ruby installation will work out of the box 
 
 #### [python](.dotfiles/tag-smu/modules/python)
 
-Installs [pyenv](https://github.com/pyenv/pyenv) for version management and [pipenv](https://github.com/pypa/pipenv) for package management. python2 and python3 is installed using pipenv. python3 will be defined as global version.
+Installs [pyenv](https://github.com/pyenv/pyenv) for version management and [pipenv](https://github.com/pypa/pipenv) for package management. python2 and python3 are installed using pipenv. python3 will be defined as global version.
 
 When the terminal module is used the python installation will work out of the box as the required pyenv code is already in place. 
 
@@ -128,6 +127,12 @@ Installs [sdkman](http://sdkman.io/) to manage all java-world related packages. 
 Installs [goenv](https://github.com/syndbg/goenv) for version management and [dep](https://github.com/golang/dep) for package management. go1 is installed and defined as global version via goenv. 
 
 When the terminal module is used the go installation will work out of the box as the required goenv code is already in place.
+
+#### [web](.dotfiles/tag-smu/modules/web)
+
+Installs [nodenv](https://github.com/nodenv/nodenv) for version management, npm comes with node for package management. node8 and node10 are installed using nodenv. node10 will be defined as global version.
+
+When the terminal module is used the node installation will work out of the box as the required nodenv code is already in place. 
 
 ### Other components 
 

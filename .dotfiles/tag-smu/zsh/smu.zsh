@@ -120,3 +120,8 @@ fi
 if [[ -d "${HOME}/Library/Android/sdk/platform-tools" ]]; then
     export PATH="${HOME}/Library/Android/sdk/platform-tools:${PATH}"
 fi
+
+# init nodenv
+if [[ ! $(command -v nodenv) == "" ]]; then
+    eval "$(nodenv init --no-rehash - zsh)"
+fi
