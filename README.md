@@ -93,9 +93,19 @@ Should your system require a system restart due to an `macosupdate` caused updat
 
 #### [terminal](.dotfiles/tag-smu/modules/terminal)
 
-Configures zsh as your default shell with sane zsh options and provides you with a list of useful plugins managed via [zplugin](https://github.com/zdharma/zplugin). 
+Configures zsh as your default shell with sane zsh options and provides you with a list of useful plugins managed via [zplugin](https://github.com/zdharma/zplugin).
 
-For flexibility and speed reasons set-me-up does not rely on any of the popular frameworks but utilitizes a few plugins from these. 
+For flexibility and speed reasons set-me-up does not rely on any of the popular frameworks but picks a few plugins from these. To keep the console snappy all plugins are [loaded asynchronously](https://github.com/zdharma/zplugin#turbo-mode-zsh--53). 
+
+Some of the plugins are:
+
+* zsh-autosuggestions
+* zsh-completions
+* zsh-you-should-use
+* fast-syntax-highlighting
+* fasd
+* fzf
+* ... and more. Take a look at the [zplugin file](.dotfiles/tag-smu/zsh/zplugin.zsh) for a full overview.
 
 The terminal module does not come with any theme or fancy prompt. A separate theming module is planned to satisfy this. 
 
