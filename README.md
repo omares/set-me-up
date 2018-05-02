@@ -130,7 +130,7 @@ When the terminal module is used the python installation will work out of the bo
 
 #### [java](.dotfiles/tag-smu/modules/java)
 
-Installs [sdkman](http://sdkman.io/) to manage all java-world related packages. java8, java10, kotlin1, maven3 and gradle4 are installed via sdkman. **java8** will be defined as global version. Android Studio is installed via brew cask.
+Installs [sdkman](http://sdkman.io/) to manage all java-world related packages. java8, java10, kotlin1, scala2, maven3, gradle4 and sbt1 are installed via sdkman. **java8** will be defined as global version. Android Studio is installed via brew cask.
 
 #### [go](.dotfiles/tag-smu/modules/go)
 

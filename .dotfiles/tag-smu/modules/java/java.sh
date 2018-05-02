@@ -2,9 +2,11 @@
 
 readonly java8="8.0.171-oracle"
 readonly java10="10.0.1-oracle"
+readonly scala2="2.12.5"
 readonly kotlin1="1.2.41"
 readonly maven3="3.5.3"
 readonly gradle4="4.7"
+readonly sbt1="1.1.4"
 
 sdk_install() {
     local -r candidate="${1}"
@@ -42,8 +44,11 @@ sdk_install "java" "${java10}"
 
 sdk_install "kotlin" "${kotlin1}"
 
+sdk_install "scala" "${scala2}"
+
 sdk_install "maven" "${maven3}"
 sdk_install "gradle" "${gradle4}"
+sdk_install "sbt" "${sbt1}"
 
 echo "------------------------------"
 echo "Setting java ${java8} as global version"
