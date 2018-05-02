@@ -101,9 +101,6 @@
     # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
     precomposeunicode = false
 
-    # https://github.com/so-fancy/diff-so-fancy
-    pager = diff-so-fancy | less --tabs=4 -RFX
-
 [color]
     # Use colors in Git commands that are capable of colored output when
     # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)

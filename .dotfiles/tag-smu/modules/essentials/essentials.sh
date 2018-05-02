@@ -10,7 +10,3 @@ echo "------------------------------"
 echo "Installing brew dependencies"
 
 brew bundle install -v --file="./brewfile"
-
-# https://pempek.net/articles/2014/04/18/git-p4merge/
-curl -fsSL https://pempek.net/files/git-p4merge/mac/p4merge > /usr/local/bin/p4merge
-chmod +x /usr/local/bin/p4merge

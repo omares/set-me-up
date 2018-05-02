@@ -1,0 +1,16 @@
+{
+	"always_show_minimap_viewport": true,
+	"ensure_newline_at_eof_on_save": true,
+	"font_size": 12,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+	],
+	"rulers": [120],
+	"indent_to_bracket": true,
+	"shift_tab_unindent": true,
+	"show_encoding": true,
+	"show_line_endings": true,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}

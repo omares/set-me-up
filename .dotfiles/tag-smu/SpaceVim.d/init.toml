@@ -1,0 +1,60 @@
+[options]
+    colorscheme = "one"
+    colorscheme_bg = "dark"
+    statusline_separator = "arrow"
+    statusline_inactive_separator = "arrow"
+    buffer_index_type = 4
+    filetype_icon = true
+    default_indent = 4
+    relativenumber = false
+    enable_statusline_display_mode = true
+
+# Enable autocomplete layer
+[[layers]]
+name = 'autocomplete'
+auto-completion-return-key-behavior = "complete"
+auto-completion-tab-key-behavior = "smart"
+
+[[layers]]
+name = 'shell'
+default_position = 'top'
+default_height = 30
+
+[[layers]]
+name = 'checkers'
+
+[[layers]]
+name = 'colorscheme'
+
+[[layers]]
+name = 'VersionControl'
+
+[[layers]]
+name = 'fzf'
+
+[[layers]]
+name = 'lang#html'
+
+[[layers]]
+name = 'lang#javascript'
+
+[[layers]]
+name = 'lang#json'
+
+[[layers]]
+name = 'lang#markdown'
+
+[[layers]]
+name = 'lang#php'
+
+[[layers]]
+name = 'lang#sh'
+
+[[layers]]
+name = 'lang#toml'
+
+[[layers]]
+name = 'lang#typescript'
+
+[[layers]]
+name = 'lang#xml'

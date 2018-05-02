@@ -6,6 +6,14 @@ export LANG=de_DE.UTF-8
 export SMU_ZSH_DIR=${ZDOTDIR:-${HOME}}/.zsh
 export ZSH_CACHE_DIR=${SMU_ZSH_DIR}/cache
 
+# use nvim
+
+alias vi="nvim"
+alias vim="nvim"
+
+export VISUAL="nvim"
+export EDITOR="${VISUAL}"
+
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
 
