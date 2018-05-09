@@ -36,8 +36,6 @@ brew "imagemagick", args: ["with-webp"]
 brew "git"
 brew "git-lfs"
 brew "hub"
-brew "diff-so-fancy"
-cask "p4merge"
 
 # compression utilities
 brew "p7zip"
@@ -59,12 +57,6 @@ brew "tree"
 brew "pandoc"
 brew "httpie"
 brew "sslmate"
-
-# IDEs
-cask "intellij-idea"
-cask "sublime-text"
-cask "atom"
-cask "macdown"
 
 # browsers
 cask "google-chrome"

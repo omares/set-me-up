@@ -107,7 +107,21 @@ Some of the plugins are:
 * fzf
 * ... and more. Take a look at the [zplugin file](.dotfiles/tag-smu/zsh/zplugin.zsh) for a full overview.
 
-The terminal module does not come with any theme or fancy prompt. A separate theming module is planned to satisfy this. 
+The terminal module does not come with any theme or fancy prompt. A separate theme module is planned to satisfy this. 
+
+#### [editor](.dotfiles/tag-smu/modules/editor)
+
+The editor module comes with [neovim](https://neovim.io/) and [vim](https://www.vim.org/), although neovim is considered to be used over vim. Should you enjoy using vi outside your terminal you can use [oni](https://www.onivim.io/). [SpaceVim](https://spacevim.org/) provides a good configuration base and is referenced in all three vi editors.
+
+For tasks you don't want to solve in vi you can use [Intellij IDEA ultimate](https://www.jetbrains.com/idea/) or [Sublime3](https://www.sublimetext.com/). The Sublime configuration comes with a few [useful plugins](.dotfiles/tag-smu/modules/editor/editor.sh#L8-L19) that are managed via [Package Control](https://packagecontrol.io/).
+  
+[Macdown](https://macdown.uranusjr.com/) for Markdown editing, [p4merge](https://www.perforce.com/products/helix-core-apps/merge-diff-tool-p4merge) for merging/diffing and [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) as default git difftool are also part of the editor module.
+
+Apart from theme and font all editors come preconfigured, except Intellij. ([SpaceVim](.dotfiles/tag-smu/SpaceVim.d), [Oni](.dotfiles/tag-smu/config/oni), [Sublime](.dotfiles/tag-smu/modules/editor/sublime)). To synchronize your Intellij configuration i recommend using the official [Settings Sync plugin](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#IDE_settings_sync) 
+
+Why no atom or Visual Studio Code?  
+The above editors fulfil my daily needs and neither atom or Visual Studio Code were able to handle **large** files in multiple attempts. Not having an incentive to switch i continue using Sublime.
+
 
 #### [php](.dotfiles/tag-smu/modules/php)
 

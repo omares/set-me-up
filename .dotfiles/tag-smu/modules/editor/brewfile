@@ -1,0 +1,16 @@
+cask_args appdir: "/Applications"
+
+brew "jq"
+
+brew "vim", args: ["override-system-vi", "with-lua"]
+brew "neovim"
+
+# IDEs
+cask "intellij-idea"
+cask "sublime-text"
+cask "macdown"
+cask "oni"
+
+# diff
+cask "p4merge"
+brew "diff-so-fancy"
