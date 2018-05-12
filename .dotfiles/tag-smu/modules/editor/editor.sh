@@ -1,9 +1,9 @@
 #!/bin/bash
 
-readonly sublime_directory="${HOME}/Library/Application Support/Sublime Text 3"
-readonly sublime_settings="${sublime_directory}/Packages/User/Preferences.sublime-settings"
-readonly sublime_package_control="${sublime_directory}/Installed Packages/Package Control.sublime-package"
-readonly sublime_package_settings="${sublime_directory}/Packages/User/Package Control.sublime-settings"
+readonly sublime_dir="${HOME}/Library/Application Support/Sublime Text 3"
+readonly sublime_user_dir="${sublime_dir}/Packages/User"
+readonly sublime_package_settings="${sublime_user_dir}/Package Control.sublime-settings"
+readonly sublime_package_control="${sublime_dir}/Installed Packages/Package Control.sublime-package"
 readonly sublime_packages=(
     "A File Icon"
     "Alignment"
@@ -19,6 +19,18 @@ readonly sublime_packages=(
     "TrailingSpaces"
 )
 
+stdin_to_file() {
+    local -r file="${1}"
+
+    echo "$(</dev/stdin)" > "${file}"
+}
+
+sublime_merge_setting() {
+    local -r settings="${1}"
+
+    jq -e -s '.[0] + .[1]' "${sublime_user_dir}/${settings##*/}" "${settings}" | stdin_to_file "${sublime_user_dir}/${settings##*/}"
+}
+
 echo "------------------------------"
 echo "Running editor module"
 echo "------------------------------"
@@ -28,6 +40,11 @@ echo "------------------------------"
 echo "Installing brew dependencies"
 
 brew bundle install -v --file="./brewfile"
+
+if [[ ! $(command -v pip) == "" ]]; then
+    pip install -U CodeIntel
+    pip install -U neovim
+fi
 
 echo "------------------------------"
 echo "Installing spacevim"
@@ -44,38 +61,13 @@ fi
 echo "------------------------------"
 echo "Merging Sublime3 settings"
 
-tmp_settings=$(mktemp);
-
-jq -e -s '.[0] + .[1]' "${sublime_settings}" "./sublime/Preferences.sublime-settings" > "${tmp_settings}"
-
-if [[ $? -eq 0 ]]; then
-    mv "${tmp_settings}" "${sublime_settings}"
-fi
-
-rm -f "${tmp_settings}"
-
-echo "------------------------------"
-echo "Adding Sublime3 packages"
-
-if [[ ! -e "${sublime_package_settings}" ]]; then
-    cp "./sublime/Package Control.sublime-settings" "${sublime_package_settings}"
-fi
-
-if [[ ! $(command -v pip) == "" ]]; then
-    pip install -U CodeIntel
-fi
-
-tmp_packages=$(mktemp);
+for settings in ./sublime/*.sublime-settings; do
+    sublime_merge_setting "${settings}"
+done
 
 jq -e --argjson packages "$(printf '%s\0' "${sublime_packages[@]}" | jq -Rs 'split("\u0000")')" \
-'.installed_packages |= (. + $packages | unique)' \
-"${sublime_package_settings}" > "${tmp_packages}"
-
-if [[ $? -eq 0 ]]; then
-    mv "${tmp_packages}" "${sublime_package_settings}"
-fi
-
-rm -f "${tmp_packages}"
+                         '.installed_packages |= (. + $packages | unique)' \
+                         "${sublime_package_settings}"  | stdin_to_file "${sublime_package_settings}"
 
 echo "------------------------------"
 echo "Installing diff- and mergetools"
