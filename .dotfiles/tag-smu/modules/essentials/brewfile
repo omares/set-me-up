@@ -9,10 +9,10 @@ brew "coreutils"
 brew "moreutils"
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`
-brew "findutils", args: ["with-default-names"]
+brew "findutils"
 
 # Install GNU `sed`, overwriting the built-in `sed`.
-brew "gnu-sed", args: ["with-default-names"]
+brew "gnu-sed"
 
 # Install `wget` with IRI support.
 brew "wget", args: ["with-iri"]

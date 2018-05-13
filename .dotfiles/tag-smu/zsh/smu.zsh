@@ -39,7 +39,7 @@ export AUTO_LS_CHPWD=false
 export AUTO_LS_COMMANDS=(pwd better-ls git-st)
 
 # coreutils without g prefix
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # taken from https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/functions.zsh#L18-L41
@@ -132,4 +132,8 @@ fi
 # init nodenv
 if [[ ! $(command -v nodenv) == "" ]]; then
     eval "$(nodenv init --no-rehash - zsh)"
+fi
+
+if [[ -s "${HOME}/.base16-manager/chriskempson/base16-shell/base16-shell.plugin.zsh" ]]; then
+    source "${HOME}/.base16-manager/chriskempson/base16-shell/base16-shell.plugin.zsh"
 fi

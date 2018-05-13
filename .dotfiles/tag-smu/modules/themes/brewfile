@@ -1,0 +1,16 @@
+tap "caskroom/fonts"
+tap "chrokh/tap"
+
+brew "remarshal"
+brew "xmlstarlet"
+brew "jq"
+
+# https://github.com/AuditeMarlow/base16-manager
+brew "findutils"
+brew "base16-manager"
+
+# https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
+cask "font-firacode-nerd-font"
+
+# https://github.com/tonsky/FiraCode
+cask "font-fira-code"
