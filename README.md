@@ -30,8 +30,11 @@ No matter how you obtain smu, as a sane developer you should take a look at the 
     
 ### Customize set-me-up
 
-set-me-up will favor your version of a file, when you provide one, through the power of [rcm tags](http://thoughtbot.github.io/rcm/rcup.1.html).
-This mitigates the need to adjust the files that come with set-me-up and gives high customizability: 
+Through the power of [rcm tags](http://thoughtbot.github.io/rcm/rcup.1.html) set-me-up will favor your version of a file, when you provide one. This mitigates the need to adjust the files that come with set-me-up and gives high customizability.
+
+#### Hooks
+
+For greater flexibility set-me-up provides two hook points. Before and after source the module script. 
 
 1. Fork the repository
 2. Create a new rcm tag, by creating a new folder prefixed `tag-` inside the [`.dotfiles`](.dotfiles) directory: `.dotfiles/tag-mydiary`

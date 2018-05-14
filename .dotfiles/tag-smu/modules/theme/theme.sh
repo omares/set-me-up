@@ -1,20 +1,24 @@
 #!/bin/bash
 
 # prefixed with smu so it does not clash
-readonly smu_base16_theme="material-darker"
-readonly smu_postscript_font="FuraCodeNerdFontComplete-Light"
-readonly smu_postscript_font_size="12"
+readonly smu_base16_theme=${smu_base16_theme:-"material-darker"}
+readonly smu_postscript_font=${smu_postscript_font:-"FuraCodeNerdFontComplete-Light"}
+readonly smu_postscript_font_size=${smu_postscript_font_size:-"12"}
 
-readonly sublime_directory="${HOME}/Library/Application Support/Sublime Text 3"
-readonly sublime_settings="${sublime_directory}/Packages/User/Preferences.sublime-settings"
-readonly sublime_package_settings="${sublime_directory}/Packages/User/Package Control.sublime-settings"
+readonly sublime_directory=${sublime_directory:-"${HOME}/Library/Application Support/Sublime Text 3"}
+readonly sublime_settings=${sublime_settings:-"${sublime_directory}/Packages/User/Preferences.sublime-settings"}
+readonly sublime_package_settings=${sublime_package_settings:-"${sublime_directory}/Packages/User/Package Control.sublime-settings"}
 
-readonly spacevim_settings="${HOME}/.SpaceVim.d/init.toml"
+readonly spacevim_settings=${spacevim_settings:-"${HOME}/.SpaceVim.d/init.toml"}
 
-readonly iterm2_settings="${HOME}/Library/Preferences/com.googlecode.iterm2.plist"
+readonly iterm2_settings=${iterm2_settings:-"${HOME}/Library/Preferences/com.googlecode.iterm2.plist"}
 
-readonly base16_idea_download="https://github.com/adilosa/base16-jetbrains/tarball/master"
-readonly base16_manager_templates=("chriskempson/base16-shell" "nicodebo/base16-fzf" "chriskempson/base16-vim")
+readonly base16_idea_download=${base16_idea_download:-"https://github.com/adilosa/base16-jetbrains/tarball/master"}
+[[ -z "${base16_manager_templates+x}" ]] && readonly base16_manager_templates=(
+    "chriskempson/base16-shell"
+    "nicodebo/base16-fzf"
+    "chriskempson/base16-vim"
+)
 
 stdin_to_file() {
     local -r file="${1}"

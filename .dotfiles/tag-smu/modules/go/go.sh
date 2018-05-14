@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly go1="1.10.1"
+readonly go1=${go1:-"1.10.1"}
 
 echo "------------------------------"
 echo "Running go module"
