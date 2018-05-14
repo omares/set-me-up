@@ -6,12 +6,10 @@ autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
 
-[[ -s ${SMU_ZSH_DIR}/zplugin.zsh ]] && source ${SMU_ZSH_DIR}/zplugin.zsh
-[[ -s /usr/local/etc/grc.zsh ]] && source /usr/local/etc/grc.zsh
-
-if [[ -s ~/.zshrc.local ]]; then
-    source ~/.zshrc.local
-fi
+[[ -s ${SMU_ZSH_DIR}/zplugin.zsh ]] && source "${SMU_ZSH_DIR}/zplugin.zsh"
+[[ -s /usr/local/etc/grc.zsh ]] && source "/usr/local/etc/grc.zsh"
+[[ -s ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # fake sdkman installation so we can move it to own file
 # sdkman-init.sh
+[ -f ~/.fzf.colors ] && source ~/.fzf.colors

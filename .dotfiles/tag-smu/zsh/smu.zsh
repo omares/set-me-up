@@ -12,7 +12,7 @@ alias vi="nvim"
 alias vim="nvim"
 
 export VISUAL="nvim"
-export EDITOR="${VISUAL}"
+export EDITOR="nvim"
 
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_USE_ASYNC=true

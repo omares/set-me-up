@@ -88,6 +88,10 @@ zplugin ice svn atclone'./install --bin --no-bash --no-fish' as'program' pick'bi
         wait'0' blockf lucid
 zplugin load junegunn/fzf
 
+SMU_SPACESHIP_ENABLED=${SMU_SPACESHIP_ENABLED:-false}
+zplugin ice pick'spaceship.zsh' blockf lucid if'[[ ${SMU_SPACESHIP_ENABLED} == true ]]'
+zplugin load denysdovhan/spaceship-prompt
+
 # fast-syntax-highlighting should be last to gain the best completion speed
 # https://github.com/zdharma/fast-syntax-highlighting
 zplugin ice wait'0' lucid atinit'zpcompinit; zpcdreplay'

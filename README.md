@@ -75,9 +75,32 @@ If not available it will install `brew` and then `rcm`. Afterwards `rcup` will b
 
 This is the only module that is not overwritable via rcm tag management. It is always sourced from the smu installation directory.
 
+#### [editor](.dotfiles/tag-smu/modules/editor)
+
+The editor module comes with [neovim](https://neovim.io/) and [vim](https://www.vim.org/), although neovim is considered to be used over vim. Should you enjoy using vi outside your terminal you can use [oni](https://www.onivim.io/). [SpaceVim](https://spacevim.org/) provides a good configuration base and is referenced in all three vi editors.
+
+For tasks you don't want to solve in vi you can use [Intellij IDEA ultimate](https://www.jetbrains.com/idea/) or [Sublime3](https://www.sublimetext.com/). The Sublime configuration comes with a few [useful plugins](.dotfiles/tag-smu/modules/editor/editor.sh#L8-L19) that are managed via [Package Control](https://packagecontrol.io/).
+  
+[Macdown](https://macdown.uranusjr.com/) for Markdown editing, [p4merge](https://www.perforce.com/products/helix-core-apps/merge-diff-tool-p4merge) for merging/diffing and [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) as default git difftool are also part of the editor module.
+
+Apart from theme and font all editors come preconfigured, except Intellij. ([SpaceVim](.dotfiles/tag-smu/SpaceVim.d), [Oni](.dotfiles/tag-smu/config/oni), [Sublime](.dotfiles/tag-smu/modules/editor/sublime)). To synchronize your Intellij configuration i recommend using the official [Settings Sync plugin](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#IDE_settings_sync) 
+
+Why no atom or Visual Studio Code?  
+The above editors fulfil my daily needs and neither atom or Visual Studio Code were able to handle **large** files in multiple attempts. Not having an incentive to switch i continue using Sublime.
+
 #### [essentials](.dotfiles/tag-smu/modules/essentials)
 
 Installs a multitude of brew packages, casks and Mac App Store applications. Check the [brewfile](.dotfiles/tag-smu/modules/essentials/brewfile) to get an overview. 
+
+#### [go](.dotfiles/tag-smu/modules/go)
+
+Installs [goenv](https://github.com/syndbg/goenv) for version management and [dep](https://github.com/golang/dep) for package management. go1 is installed and defined as global version via goenv. 
+
+When the terminal module is used the go installation will work out of the box as the required goenv code is already in place.
+
+#### [java](.dotfiles/tag-smu/modules/java)
+
+Installs [sdkman](http://sdkman.io/) to manage all java-world related packages. java8, java10, kotlin1, scala2, maven3, gradle4 and sbt1 are installed via sdkman. **java8** will be defined as global version. Android Studio is installed via brew cask.
 
 #### [macos](.dotfiles/tag-smu/modules/macos)
 
@@ -90,6 +113,25 @@ Sets a bunch of macOS settings. The file is based on macos. None macos related s
 Runs the macOS updater via console call. 
 
 Should your system require a system restart due to an `macosupdate` caused update, rerun the smu script after rebooting. The update module should be satisfied by the previous run and result in no action.
+
+#### [php](.dotfiles/tag-smu/modules/php)
+
+Installs PHP5, PHP7 and [composer](https://getcomposer.org/) for package management via brew. PHP7 will be defined as global version.  
+For each version the apcu, amqp, igbinary and xdebug extensions are installed via pecl, memcached is installed from source.
+ 
+The [phpswitch script](https://github.com/philcook/brew-php-switcher) enables you to switch between the installed versions. 
+
+#### [python](.dotfiles/tag-smu/modules/python)
+
+Installs [pyenv](https://github.com/pyenv/pyenv) for version management and [pipenv](https://github.com/pypa/pipenv) for package management. python2 and python3 are installed using pipenv. python3 will be defined as global version.
+
+When the terminal module is used the python installation will work out of the box as the required pyenv code is already in place.
+
+#### [ruby](.dotfiles/tag-smu/modules/ruby)
+
+Installs [rbenv](https://github.com/rbenv/rbenv) for version management and [bundler](http://bundler.io/) for package management. ruby2 is installed and defined as global version via rbenv. 
+
+When the terminal module is used the ruby installation will work out of the box as the required rbenv code is already in place.
 
 #### [terminal](.dotfiles/tag-smu/modules/terminal)
 
@@ -107,50 +149,17 @@ Some of the plugins are:
 * fzf
 * ... and more. Take a look at the [zplugin file](.dotfiles/tag-smu/zsh/zplugin.zsh) for a full overview.
 
-The terminal module does not come with any theme or fancy prompt. A separate theme module is planned to satisfy this. 
+By default the terminal module does not come with any theme or fancy prompt. Take a look at the theme module for that.
 
-#### [editor](.dotfiles/tag-smu/modules/editor)
+#### [theme](.dotfiles/tag-smu/modules/theme)
 
-The editor module comes with [neovim](https://neovim.io/) and [vim](https://www.vim.org/), although neovim is considered to be used over vim. Should you enjoy using vi outside your terminal you can use [oni](https://www.onivim.io/). [SpaceVim](https://spacevim.org/) provides a good configuration base and is referenced in all three vi editors.
+The [base16 material-darker theme](http://chriskempson.com/projects/base16/) and the [Nerd Font version of "Fira Code" called "Fura Code"](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) are the two pillars of the theme module. For better readability the **light** version of the font will be configured and ligatures will be enabled if possible. 
 
-For tasks you don't want to solve in vi you can use [Intellij IDEA ultimate](https://www.jetbrains.com/idea/) or [Sublime3](https://www.sublimetext.com/). The Sublime configuration comes with a few [useful plugins](.dotfiles/tag-smu/modules/editor/editor.sh#L8-L19) that are managed via [Package Control](https://packagecontrol.io/).
-  
-[Macdown](https://macdown.uranusjr.com/) for Markdown editing, [p4merge](https://www.perforce.com/products/helix-core-apps/merge-diff-tool-p4merge) for merging/diffing and [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) as default git difftool are also part of the editor module.
+[base16-manager](https://github.com/AuditeMarlow/base16-manager) is used to apply the theme to shell, vim and fzf. Font and/or theme for Sublime, SpaceVim, IDEA Intellij and iterm2 are applied programmatically by adapting the appropriate configuration files.  
 
-Apart from theme and font all editors come preconfigured, except Intellij. ([SpaceVim](.dotfiles/tag-smu/SpaceVim.d), [Oni](.dotfiles/tag-smu/config/oni), [Sublime](.dotfiles/tag-smu/modules/editor/sublime)). To synchronize your Intellij configuration i recommend using the official [Settings Sync plugin](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#IDE_settings_sync) 
+In case you are using the [SMU terminal module](#terminal), [Spaceship ZSH prompt](https://github.com/denysdovhan/spaceship-prompt) will be enabled with a [custom configuration](.dotfiles/tag-smu/modules/theme/spaceship.plugin.zsh) that tries to not be in your way.
 
-Why no atom or Visual Studio Code?  
-The above editors fulfil my daily needs and neither atom or Visual Studio Code were able to handle **large** files in multiple attempts. Not having an incentive to switch i continue using Sublime.
-
-
-#### [php](.dotfiles/tag-smu/modules/php)
-
-Installs PHP5, PHP7 and [composer](https://getcomposer.org/) for package management via brew. PHP7 will be defined as global version.  
-For each version the apcu, amqp, igbinary and xdebug extensions are installed via pecl, memcached is installed from source.
- 
-The [phpswitch script](https://github.com/philcook/brew-php-switcher) enables you to switch between the installed versions.
-
-#### [ruby](.dotfiles/tag-smu/modules/ruby)
-
-Installs [rbenv](https://github.com/rbenv/rbenv) for version management and [bundler](http://bundler.io/) for package management. ruby2 is installed and defined as global version via rbenv. 
-
-When the terminal module is used the ruby installation will work out of the box as the required rbenv code is already in place. 
-
-#### [python](.dotfiles/tag-smu/modules/python)
-
-Installs [pyenv](https://github.com/pyenv/pyenv) for version management and [pipenv](https://github.com/pypa/pipenv) for package management. python2 and python3 are installed using pipenv. python3 will be defined as global version.
-
-When the terminal module is used the python installation will work out of the box as the required pyenv code is already in place. 
-
-#### [java](.dotfiles/tag-smu/modules/java)
-
-Installs [sdkman](http://sdkman.io/) to manage all java-world related packages. java8, java10, kotlin1, scala2, maven3, gradle4 and sbt1 are installed via sdkman. **java8** will be defined as global version. Android Studio is installed via brew cask.
-
-#### [go](.dotfiles/tag-smu/modules/go)
-
-Installs [goenv](https://github.com/syndbg/goenv) for version management and [dep](https://github.com/golang/dep) for package management. go1 is installed and defined as global version via goenv. 
-
-When the terminal module is used the go installation will work out of the box as the required goenv code is already in place.
+Oni is not included as its configuration is blended within a JavaScript file.
 
 #### [web](.dotfiles/tag-smu/modules/web)
 
