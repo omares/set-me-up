@@ -161,6 +161,17 @@ In case you are using the [SMU terminal module](#terminal), [Spaceship ZSH promp
 
 Oni is not included as its configuration is blended within a JavaScript file.
 
+A few screenshots:
+
+1. Terminal  
+   [<img alt="Terminal" src="screenshots/terminal.png" width="300" />](screenshots/terminal.png)  
+2. Sublime  
+   [<img alt="Sublime" src="screenshots/sublime.png" width="300" />](screenshots/sublime.png)  
+3. SpaceVim  
+   [<img alt="SpaceVim" src="screenshots/vi.png" width="300" />](screenshots/vi.png)  
+4. IntelliJ  
+   [<img alt="IntelliJ" src="screenshots/intellij.png" width="300" />](screenshots/intellij.png)  
+   
 #### [web](.dotfiles/tag-smu/modules/web)
 
 Installs [nodenv](https://github.com/nodenv/nodenv) for version management, npm comes with node for package management. node8 and node10 are installed using nodenv. node10 will be defined as global version.
