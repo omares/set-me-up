@@ -1,10 +1,10 @@
 #!/bin/bash
 
-readonly sublime_dir="${HOME}/Library/Application Support/Sublime Text 3"
-readonly sublime_user_dir="${sublime_dir}/Packages/User"
-readonly sublime_package_settings="${sublime_user_dir}/Package Control.sublime-settings"
-readonly sublime_package_control="${sublime_dir}/Installed Packages/Package Control.sublime-package"
-readonly sublime_packages=(
+readonly sublime_dir=${sublime_dir:-"${HOME}/Library/Application Support/Sublime Text 3"}
+readonly sublime_user_dir=${sublime_user_dir:-"${sublime_dir}/Packages/User"}
+readonly sublime_package_settings=${sublime_package_settings:-"${sublime_user_dir}/Package Control.sublime-settings"}
+readonly sublime_package_control=${sublime_package_control:-"${sublime_dir}/Installed Packages/Package Control.sublime-package"}
+[[ -z "${sublime_packages+x}" ]] && readonly sublime_packages=(
     "A File Icon"
     "Alignment"
     "AutoFileName"

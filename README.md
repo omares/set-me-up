@@ -30,19 +30,32 @@ No matter how you obtain smu, as a sane developer you should take a look at the 
     
 ### Customize set-me-up
 
-set-me-up will favor your version of a file, when you provide one, through the power of [rcm tags](http://thoughtbot.github.io/rcm/rcup.1.html).
-This mitigates the need to adjust the files that come with set-me-up and gives high customizability: 
+As of right now forking this repository and using following approaches is the best way.
+
+#### Using hooks
+
+To customize the setup to your needs set-me-up provides two hook points: Before and after sourcing the module script.
+
+Before hooks enable you to perform special preparations or apply definitions that can influence the module. All smu base variables are defined to check if an existing deceleration already exists, giving you the possibility to come with own values. E.g.: You could override the [to be installed ruby version](.dotfiles/tag-smu/modules/ruby/ruby.sh#L3) by pre defining the appropriate variable or change the sdkman installation directory.
+
+Polishing module setups or using module functionality can be done with after hooks. A bit of inspiration: By calling git commands in an after hook file you could replace the git username and email dummies. Or install further extensions by using [the `extension_install` function of the php module](.dotfiles/tag-smu/modules/php/php.sh#L21).
+
+To use hooks provide a `before.sh` or `after.sh` inside the module directory. Use rcm tags to provide the hook files.
+
+#### Using rcm 
+
+Through the power of [rcm tags](http://thoughtbot.github.io/rcm/rcup.1.html) set-me-up can favor your version of a file when you provide one. This mitigates the need to tinker directly with set-me-up source files.
+
+[Create your own rcm tag](#creating-a-custom-tag) and then duplicate the directory structure and files you would like to adapt. rcm will combine all files from the given tags in the order you define. As example when you would like to modify the brewfile of the essentials module the path should look like `.dotfiles/tag-my/modules/essentials/brewfile`.
+
+* You can add new dotfiles and modules to your tag. rcm symlinks all files if finds. 
+* File contents are not merged between tags, your file simply has a higher precedence and will be used instead.
+
+##### Creating a custom tag
 
 1. Fork the repository
-2. Create a new rcm tag, by creating a new folder prefixed `tag-` inside the [`.dotfiles`](.dotfiles) directory: `.dotfiles/tag-mydiary`
-3. Add your tag to the [`.rcrc`](.rcrc) configuration file infront of the current defined tags. Resulting in `TAGS="mydiary smu"`
-4. Copy the file you want to change to your tag directory and apply your changes. It is important to preserve the file name and path. 
-5. Clone your fork and [use the `smu` script](#installing-set-me-up) to run the desired modules.
-
-
-* At least duplicate the `update.sh` script and change the repository name.
-* You can add new dotfiles and modules to your tag. rcm symlinks all files if finds to your home directory. 
-* File contents are not merged between tags, your file simply has a higher precedence and will be used/symlinked instead.
+2. Create a new rcm tag, by creating a new folder prefixed `tag-` inside the [`.dotfiles`](.dotfiles) directory: `.dotfiles/tag-my`
+3. Add your tag to the [`.rcrc`](.dotfiles/rcrc) configuration file infront of the current defined tags. Resulting in `TAGS="my smu"`
 
 ## A closer look
 

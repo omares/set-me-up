@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly ruby2="2.5.1"
+readonly ruby2=${ruby2:-"2.5.1"}
 
 echo "------------------------------"
 echo "Running ruby module"

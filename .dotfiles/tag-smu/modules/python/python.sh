@@ -1,7 +1,7 @@
 #!/bin/bash
 
-readonly python2="2.7.14"
-readonly python3="3.6.5"
+readonly python2=${python2:-"2.7.14"}
+readonly python3=${python3:-"3.6.5"}
 
 echo "------------------------------"
 echo "Running python module"

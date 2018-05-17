@@ -1,12 +1,12 @@
 #!/bin/bash
 
-readonly java8="8.0.171-oracle"
-readonly java10="10.0.1-oracle"
-readonly scala2="2.12.5"
-readonly kotlin1="1.2.41"
-readonly maven3="3.5.3"
-readonly gradle4="4.7"
-readonly sbt1="1.1.4"
+readonly java8=${java8:-"8.0.171-oracle"}
+readonly java10=${java10:-"10.0.1-oracle"}
+readonly scala2=${scala2:-"2.12.5"}
+readonly kotlin1=${kotlin1:-"1.2.41"}
+readonly maven3=${maven3:-"3.5.3"}
+readonly gradle4=${gradle4:-"4.7"}
+readonly sbt1=${sbt1:-"1.1.4"}
 
 sdk_install() {
     local -r candidate="${1}"

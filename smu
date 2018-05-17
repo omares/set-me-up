@@ -157,9 +157,21 @@ provision_module() {
     echo "Running ${path}/${script} module"
 
     if [[ " ${requires_sudo[@]} " =~ " ${1}" ]]; then
-        ( cd "${path}/" && start_sudo && source "./${script}" && stop_sudo )
+        (
+            cd "${path}/" &&
+            start_sudo &&
+            [[ -s ./before.sh ]] && source ./before.sh
+            source "./${script}" &&
+            [[ -s ./after.sh ]] && source ./after.sh
+            stop_sudo
+        )
     else
-        ( cd "${path}/" && source "./${script}" )
+        (
+            cd "${path}/" &&
+            [[ -s ./before.sh ]] && source ./before.sh
+            source "./${script}" &&
+            [[ -s ./after.sh ]] && source ./after.sh
+        )
     fi
 }
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly zsh_executable="/usr/local/bin/zsh"
+readonly zsh_executable=${zsh_executable:-"/usr/local/bin/zsh"}
 
 echo "------------------------------"
 echo "Setting up zsh."

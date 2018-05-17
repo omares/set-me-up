@@ -1,7 +1,7 @@
 #!/bin/bash
 
-readonly node8="8.11.1"
-readonly node10="10.0.0"
+readonly node8=${node8:-"8.11.1"}
+readonly node10=${node10:-"10.0.0"}
 
 echo "------------------------------"
 echo "Running web module"
