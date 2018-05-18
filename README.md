@@ -11,11 +11,13 @@ No matter how you obtain smu, as a sane developer you should take a look at the 
 
 ### Installing set-me-up
 
-1. Clone this repository **into** your home directory.
+1. Use the installer to download set-me-up. By default this will put all files into ~/set-me-up, the default smu home directory.
 
-       git@github.com:omares/set-me-up.git ~/
+       curl https://raw.githubusercontent.com/omares/set-me-up/master/.dotfiles/tag-smu/modules/install.sh | bash
+        
+   You can change the smu home directory by setting an environment variable called `SMU_HOME_DIR`. Please keep the variable declared as else the smu scripts are unable to pickup the sources.
 
-2. Use the smu script, which you find in your home directory, to run the base module. Check the [base module documentation](#base) for more insights.
+2. Use the smu script, which you find inside the smu home directory, to run the base module. Check the [base module documentation](#base) for more insights.
 
        smu -p -m base
        
@@ -47,6 +49,8 @@ To use hooks provide a `before.sh` or `after.sh` inside the module directory. Us
 Through the power of [rcm tags](http://thoughtbot.github.io/rcm/rcup.1.html) set-me-up can favor your version of a file when you provide one. This mitigates the need to tinker directly with set-me-up source files.
 
 [Create your own rcm tag](#creating-a-custom-tag) and then duplicate the directory structure and files you would like to adapt. rcm will combine all files from the given tags in the order you define. As example when you would like to modify the brewfile of the essentials module the path should look like `.dotfiles/tag-my/modules/essentials/brewfile`.
+
+Use the `smu --lsrc` command to show how rcm would manage your dotfiles and to verify your setup.
 
 * You can add new dotfiles and modules to your tag. rcm symlinks all files if finds. 
 * File contents are not merged between tags, your file simply has a higher precedence and will be used instead.
@@ -86,7 +90,9 @@ The base module is the only module that is required to run at least once on your
 
 If not available it will install `brew` and then `rcm`. Afterwards `rcup` will be executed to symlink the dotfiles from the `.dotfiles` folder into your home directory. 
 
-This is the only module that is not overwritable via rcm tag management. It is always sourced from the smu installation directory.
+This is the only module that is not overwritable via rcm tag management as it is always sourced from the smu installation directory.
+
+You can use `smu --lsrc` command to show which files will be symlinked to your home directory.
 
 #### [editor](.dotfiles/tag-smu/modules/editor)
 
