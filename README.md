@@ -13,7 +13,7 @@ No matter how you obtain smu, as a sane developer you should take a look at the 
 
 1. Use the installer to download set-me-up. By default this will put all files into ~/set-me-up, the default smu home directory.
 
-       curl https://raw.githubusercontent.com/omares/set-me-up/master/.dotfiles/tag-smu/modules/install.sh | bash
+       bash <(curl --progress-bar -L https://raw.githubusercontent.com/omares/set-me-up/master/.dotfiles/tag-smu/modules/install.sh)
         
    You can change the smu home directory by setting an environment variable called `SMU_HOME_DIR`. Please keep the variable declared as else the smu scripts are unable to pickup the sources.
 
