@@ -5,7 +5,7 @@
 readonly SMU_BLUEPRINT=${SMU_BLUEPRINT:-""}
 
 # the set-me-up version to download
-readonly SMU_VERSION=${SMU_VERSION:-"master"}
+readonly SMU_VERSION=${SMU_VERSION:-"1.0.0"}
 
 # where to install set-me-up
 SMU_HOME_DIR=${SMU_HOME_DIR:-"${HOME}/set-me-up"}
