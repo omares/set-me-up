@@ -3,27 +3,42 @@
 set-me-up aims to simplify the dull setup and maintenance of macOS development environments.
 It does so by automating the process through a collection of dotfiles and shell scripts [bundled into modules](#available-modules).
 
-## Usage
+Instead of enforcing a certain setup it tries to act as a solid template that is highly customizable to your needs.
 
-**Note:** set-me-up is work in progress. A more standalone and versioned customization process is planned. 
+## Usage
 
 No matter how you obtain smu, as a sane developer you should take a look at the provided modules and dotfiles to verify that no shenanigans are happening.
 
-### Installing set-me-up
+### Use the blueprint
 
-1. Use the installer to download set-me-up. By default this will put all files into ~/set-me-up, the default smu home directory.
+The recommended way to obtain set-me-up is by forking the [blueprint setup](https://github.com/omares/set-me-up-blueprint), which is an own lean repo that comes preconfigured with a [tag](#using-rcm) and module. 
 
-       bash <(curl --progress-bar -L https://raw.githubusercontent.com/omares/set-me-up/master/.dotfiles/tag-smu/modules/install.sh)
+You might wonder why not work directly with this repo? Having an own repo for your dotfiles and set-me-up customizations has a few advantages:
+
+* It is loosely coupled, making your life way easier. The only connection between your repo and set-me-up is through the installer. 
+* You can easily walk away from using set-me-up but can keep your precious dotfiles and shell scripts.
+* It is easier to make your setup private as no direct remote to the blueprint or set-me-up repo is required.
+* Your commit history and file list will stay clean. 
+* The referenced set-me-up version is fixated in the installer, ensuring that your setup will work even when the master advances. Advancing to the next version is easy by bumping the version in the installer.
+* Its fancy, at least i think so ;) 
+
+### Obtaining set-me-up
+
+Either use your blueprint or the default installer to obtain set-me-up. This will put all files into ~/set-me-up, the default smu home directory. In case you decided against an own blueprint you can run following command in your console.
+
+    bash <(curl --progress-bar -L https://raw.githubusercontent.com/omares/set-me-up/master/.dotfiles/tag-smu/modules/install.sh)
         
    You can change the smu home directory by setting an environment variable called `SMU_HOME_DIR`. Please keep the variable declared as else the smu scripts are unable to pickup the sources.
 
-2. Use the smu script, which you find inside the smu home directory, to run the base module. Check the [base module documentation](#base) for more insights.
+### Running set-me-up
+
+1. Use the smu script, which you find inside the smu home directory, to run the base module. Check the [base module documentation](#base) for more insights.
 
        smu -p -m base
        
    After running the base module moving the source folder is not recommended due to the usage of symlinks.  
     
-3. Afterwards provision your machine with [further modules](#available-modules) via the smu script. Repeat the `-m` switch to specify more then one module.
+2. Afterwards provision your machine with [further modules](#available-modules) via the smu script. Repeat the `-m` switch to specify more then one module.
   
        smu -p -m essentials -m terminal -m php
        
@@ -31,8 +46,6 @@ No matter how you obtain smu, as a sane developer you should take a look at the 
    Fear not, all modules can be installed to a later point of time when you need it.
     
 ### Customize set-me-up
-
-As of right now forking this repository and using following approaches is the best way.
 
 #### Using hooks
 
@@ -57,30 +70,14 @@ Use the `smu --lsrc` command to show how rcm would manage your dotfiles and to v
 
 ##### Creating a custom tag
 
-1. Fork the repository
-2. Create a new rcm tag, by creating a new folder prefixed `tag-` inside the [`.dotfiles`](.dotfiles) directory: `.dotfiles/tag-my`
-3. Add your tag to the [`.rcrc`](.dotfiles/rcrc) configuration file infront of the current defined tags. Resulting in `TAGS="my smu"`
+1. Create a new rcm tag, by creating a new folder prefixed `tag-` inside the [`.dotfiles`](.dotfiles) directory: `.dotfiles/tag-my`
+2. Add your tag to the [`.rcrc`](.dotfiles/rcrc) configuration file infront of the current defined tags. Resulting in `TAGS="my smu"`
+
+### ??? I am confused
+
+[Go to the blue print repo](https://github.com/omares/set-me-up-blueprint#how-to-use). Fork it. Apply your changes using the techniques from above. Use the installer inside your forked repo to obtain everything. Provision your machine through the smu script.
 
 ## A closer look
-
-### How does it work?
-
-> Hamid: What's that?  
-> Rambo: It's blue light.  
-> Hamid: What does it do?  
-> Rambo: It turns blue.
-
-**TL;DR;** It symlinks all dotfiles and stupidly runs shell scripts. 
-
-
-
-smu symlinks all dotfiles from the `.dotfiles` folder, which includes the modules, to your home directory. With the power of [rcm](https://github.com/thoughtbot/rcm), `.dotfiles/tag-smu/gitconfig` becomes `~/.gitconfig`. Using bash scripting the installation of brew is ensured. All this is covered by the base module and provides an opinionated base setup on which smu operates. 
-
-Depending on the module further applications will be installed by "automating" their installation through other bash scripts.  
-In most cases set-me-up delegates the legwork to tools that are meant to be used for the job. E.g. installing zplugin for zsh plugin management. 
-
-Nothing describes the actual functionality better than code. It is recommended to check the appropriate module script to get the full insights. 
-set-me-up is a plain collection of bash scripts and tools that you probably already worked with, therefor understanding what is happening will be easy. :)  
 
 ### Available modules
 
@@ -207,6 +204,25 @@ It runs the given modules by sourcing the appropriate script and ensuring a few 
 #### [update.sh](.dotfiles/tag-smu/modules/update.sh)
 
 Tries it best to be useful as an updater of the provided sources. Work in progress ;)
+
+### How does it work?
+
+> Hamid: What's that?  
+> Rambo: It's blue light.  
+> Hamid: What does it do?  
+> Rambo: It turns blue.
+
+**TL;DR;** It symlinks all dotfiles and stupidly runs shell scripts. 
+
+
+
+smu symlinks all dotfiles from the `.dotfiles` folder, which includes the modules, to your home directory. With the power of [rcm](https://github.com/thoughtbot/rcm), `.dotfiles/tag-smu/gitconfig` becomes `~/.gitconfig`. Using bash scripting the installation of brew is ensured. All this is covered by the base module and provides an opinionated base setup on which smu operates. 
+
+Depending on the module further applications will be installed by "automating" their installation through other bash scripts.  
+In most cases set-me-up delegates the legwork to tools that are meant to be used for the job. E.g. installing zplugin for zsh plugin management. 
+
+Nothing describes the actual functionality better than code. It is recommended to check the appropriate module script to get the full insights. 
+set-me-up is a plain collection of bash scripts and tools that you probably already worked with, therefor understanding what is happening will be easy. :)  
 
 ## Credits
 
