@@ -56,22 +56,11 @@ brew "ssh-copy-id"
 brew "tree"
 brew "pandoc"
 brew "httpie"
-brew "sslmate"
 
 # browsers
 cask "google-chrome"
 cask "firefox"
 brew "lynx"
-
-# tools
-cask "cyberduck"
-cask "yed"
-cask "phraseapp"
-cask "1password"
-cask "tunnelblick"
-cask "spectacle"
-cask "beardedspice"
-cask "istat-menus"
 
 # database management
 cask "sequel-pro"
@@ -95,9 +84,5 @@ cask "quicklookase"
 cask "qlvideo"
 
 # mac store applications
-mas "Amphetamine", id: 93798470
-mas "The Unarchiver", id: 425424353
-mas "Kuvva", id: 451557061
-mas "Bear notes", id: 1091189122
-mas "Microsoft Remote Desktop", id: 715768417
-mas "Lightshot Screenshot", id: 526298438
+# Example:
+# mas "The Unarchiver", id: 425424353
