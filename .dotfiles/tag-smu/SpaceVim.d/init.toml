@@ -1,60 +1,69 @@
-[options]
-    colorscheme = "one"
-    colorscheme_bg = "dark"
-    statusline_separator = "arrow"
-    statusline_inactive_separator = "arrow"
-    buffer_index_type = 4
-    filetype_icon = true
-    default_indent = 4
-    relativenumber = false
-    enable_statusline_display_mode = true
-
-# Enable autocomplete layer
 [[layers]]
-name = 'autocomplete'
 auto-completion-return-key-behavior = "complete"
 auto-completion-tab-key-behavior = "smart"
+name = "autocomplete"
 
 [[layers]]
-name = 'shell'
-default_position = 'top'
 default_height = 30
+default_position = "top"
+name = "shell"
 
 [[layers]]
-name = 'checkers'
+enable = false
+name = "core#statusline"
 
 [[layers]]
-name = 'colorscheme'
+enable = false
+name = "core#tabline"
 
 [[layers]]
-name = 'VersionControl'
+name = "VersionControl"
 
 [[layers]]
-name = 'fzf'
+name = "checkers"
 
 [[layers]]
-name = 'lang#html'
+name = "colorscheme"
 
 [[layers]]
-name = 'lang#javascript'
+name = "fzf"
 
 [[layers]]
-name = 'lang#json'
+name = "lang#html"
 
 [[layers]]
-name = 'lang#markdown'
+name = "lang#javascript"
 
 [[layers]]
-name = 'lang#php'
+name = "lang#json"
 
 [[layers]]
-name = 'lang#sh'
+name = "lang#markdown"
 
 [[layers]]
-name = 'lang#toml'
+name = "lang#php"
 
 [[layers]]
-name = 'lang#typescript'
+name = "lang#sh"
 
 [[layers]]
-name = 'lang#xml'
+name = "lang#toml"
+
+[[layers]]
+name = "lang#typescript"
+
+[[layers]]
+name = "lang#xml"
+
+[options]
+buffer_index_type = 4
+colorscheme = "$BASE16_THEME"
+colorscheme_bg = "dark"
+custom_plugins = [["chriskempson/base16-vim"]]
+default_indent = 4
+enable_statusline_display_mode = true
+filetype_icon = true
+guifont = "FuraCodeNerdFontComplete-Light 12"
+relativenumber = false
+statusline_inactive_separator = "arrow"
+statusline_separator = "arrow"
