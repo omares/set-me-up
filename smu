@@ -130,19 +130,6 @@ provision_enabled() {
 export _arg_provision
 export -f provision_enabled
 
-start_sudo() {
-    sudo -v
-    ( while true; do sudo -v; sleep 60; done; ) &
-    SUDO_PID="$!"
-    trap stop_sudo SIGINT SIGTERM
-}
-
-stop_sudo() {
-    kill "$SUDO_PID"
-    trap - SIGINT SIGTERM
-    sudo -k
-}
-
 provision_module() {
     # source base from installation directory
     # this enables smu to work on first time installations
@@ -153,7 +140,6 @@ provision_module() {
     fi
 
     local -r script="${1}.sh"
-    local -r requires_sudo=("macos" "macosupdate")
 
     if [[ ! -e "${path}/${script}" ]]; then
         echo "${path}/${script} does not seem to exist, skipping."
@@ -163,23 +149,12 @@ provision_module() {
 
     echo "Running ${path}/${script} module"
 
-    if [[ " ${requires_sudo[@]} " =~ " ${1}" ]]; then
-        (
-            cd "${path}/" &&
-            start_sudo &&
-            [[ -s ./before.sh ]] && source ./before.sh
-            source "./${script}" &&
-            [[ -s ./after.sh ]] && source ./after.sh
-            stop_sudo
-        )
-    else
-        (
-            cd "${path}/" &&
-            [[ -s ./before.sh ]] && source ./before.sh
-            source "./${script}" &&
-            [[ -s ./after.sh ]] && source ./after.sh
-        )
-    fi
+    (
+        cd "${path}/" &&
+        [[ -s ./before.sh ]] && source ./before.sh
+        source "./${script}" &&
+        [[ -s ./after.sh ]] && source ./after.sh
+    )
 }
 
 if [[ ${_arg_lsrc} == "on" ]]; then
