@@ -55,6 +55,7 @@ if [[ ! -e "${sublime_package_control}" ]]; then
     echo "------------------------------"
     echo "Installing Sublime3 package control"
 
+    mkdir -p $(dirname "${sublime_package_control}")
     curl -fsSL "https://packagecontrol.io/Package%20Control.sublime-package" > "${sublime_package_control}"
 fi
 
