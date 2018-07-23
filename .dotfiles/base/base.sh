@@ -30,7 +30,7 @@ echo "------------------------------"
 # get the absolute path of the .dotfiles directory
 # this is only for aesthetic reasons to have an absolute symlink path instead of a relative one
 # <path-to-smu>/.dotfiles/somedotfile vs <path-to-smu>/.dotfiles/base/../somedotfile
-readonly dotfiles="$(dirname -- "$(dirname -- "$(readlink -f -- "$0")")")"
+readonly dotfiles="$(dirname -- "$(dirname -- "$(greadlink -f -- "$0")")")"
 
 export RCRC="../rcrc"
 rcup -v -d "${dotfiles}"
