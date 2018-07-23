@@ -12,5 +12,5 @@ cask "macdown"
 cask "oni"
 
 # diff
-cask "p4merge"
+cask "p4v"
 brew "diff-so-fancy"
