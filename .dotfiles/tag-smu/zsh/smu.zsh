@@ -6,6 +6,9 @@ export LANG=de_DE.UTF-8
 export SMU_ZSH_DIR=${ZDOTDIR:-${HOME}}/.zsh
 export ZSH_CACHE_DIR=${SMU_ZSH_DIR}/cache
 
+# english please
+alias git='LANG=en_GB git'
+
 # use nvim
 
 alias vi="nvim"
