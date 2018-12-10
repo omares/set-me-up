@@ -9,7 +9,6 @@ brew "neovim"
 cask "intellij-idea"
 cask "sublime-text"
 cask "macdown"
-cask "oni"
 
 # diff
 cask "p4v"
